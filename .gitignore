@@ -2,5 +2,4 @@
 .env
 __pycache__/
 *.pyc
-noteList.csv
 VSCode起動.bat
