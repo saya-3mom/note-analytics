@@ -1,6 +1,7 @@
 import csv
 from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 
 class ObservationManager:
@@ -29,7 +30,9 @@ class ObservationManager:
         同一日に同じ管理IDが存在する場合は追加しない。
         """
 
-        today = datetime.now().strftime("%Y-%m-%d")
+        today = datetime.now(
+            ZoneInfo("Asia/Tokyo")
+        ).strftime("%Y-%m-%d")
 
         existing_rows = self._load()
 
