@@ -35,6 +35,7 @@ class AnalysisManager:
     def get_latest_changes(self):
         """記事ごとの最新観測と前回観測との差分を取得する"""
         observations = self.load_observations()
+        article_map = self.get_article_map()
 
         articles = {}
 
@@ -70,10 +71,17 @@ class AnalysisManager:
             else:
                 like_rate = 0
 
+            article = article_map.get(note_key)
+
+            if article is not None:
+                management_id = article["management_id"]
+            else:
+                management_id = latest["management_id"]
+
             results.append(
                 {
                     "note_key": note_key,
-                    "management_id": latest["management_id"],
+                    "management_id": management_id,
                     "observed_at": latest["observed_at"],
                     "views": views,
                     "likes": likes,
@@ -132,7 +140,7 @@ class AnalysisManager:
         article_observations = [
             observation
             for observation in observations
-            if observation["management_id"] == management_id
+            if observation["note_key"] == article["note_key"]
         ]
 
         published_at = datetime.fromisoformat(
@@ -170,16 +178,16 @@ class AnalysisManager:
         observations = self.load_observations()
 
         article_map = {
-            article["management_id"]: article
+            article["note_key"]: article
             for article in articles
         }
 
         comparison = {}
 
         for observation in observations:
-            management_id = observation["management_id"]
+            note_key = observation["note_key"]
 
-            article = article_map.get(management_id)
+            article = article_map.get(note_key)
 
             if article is None:
                 continue
@@ -195,6 +203,8 @@ class AnalysisManager:
             elapsed_days = (
                 observed_at.date() - published_at.date()
             ).days
+
+            management_id = article["management_id"]
 
             comparison.setdefault(management_id, {})
             comparison[management_id][elapsed_days] = int(
@@ -340,24 +350,25 @@ def show_initial_growth(observations, article_master, days=3):
     grouped = {}
 
     for row in observations:
-        management_id = row["management_id"]
+        note_key = row["note_key"]
 
-        if management_id not in grouped:
-            grouped[management_id] = []
+        if note_key not in grouped:
+            grouped[note_key] = []
 
-        grouped[management_id].append(row)
+        grouped[note_key].append(row)
 
     for article in article_master:
+        note_key = article["note_key"]
         management_id = article["management_id"]
 
-        if management_id not in grouped:
+        if note_key not in grouped:
             continue
 
         published_at = datetime.fromisoformat(article["published_at"])
 
         valid_observations = []
 
-        for row in grouped[management_id]:
+        for row in grouped[note_key]:
             observed_at = datetime.fromisoformat(row["observed_at"])
 
             elapsed_days = (observed_at.date() - published_at.date()).days

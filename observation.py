@@ -27,7 +27,7 @@ class ObservationManager:
         現在の記事情報を観測データとして追加する。
 
         management_id が DEL で始まる記事は対象外。
-        同一日に同じ管理IDが存在する場合は追加しない。
+        同一日に同じ note_key が存在する場合は追加しない。
         """
 
         today = datetime.now(
@@ -36,9 +36,9 @@ class ObservationManager:
 
         existing_rows = self._load()
 
-        # 今日すでに観測済みの管理ID
+        # 今日すでに観測済みのnote_key
         observed_today = {
-            row["management_id"]
+            row["note_key"]
             for row in existing_rows
             if row.get("observed_at") == today
         }
@@ -48,23 +48,24 @@ class ObservationManager:
         for article in articles:
 
             management_id = article.get("management_id", "").strip()
-
-            # 管理ID未設定は対象外
-            if not management_id:
-                continue
+            note_key = article.get("note_key", "").strip()
 
             # DELで始まる記事は対象外
             if management_id.startswith("DEL"):
                 continue
 
+            # note_keyが取得できない記事は対象外
+            if not note_key:
+                continue
+
             # 同じ日にすでに観測済みなら追加しない
-            if management_id in observed_today:
+            if note_key in observed_today:
                 continue
 
             row = {
                 "observed_at": today,
                 "management_id": management_id,
-                "note_key": article.get("note_key", ""),
+                "note_key": note_key,
                 "views": article.get("views", 0),
                 "likes": article.get("likes", 0),
                 "comments": article.get("comments", 0),
