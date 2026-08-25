@@ -7,7 +7,7 @@ OTEPAY-001,開発,n6396852d7c6a,お手伝いポイント管理アプリが使え
 LIFE-004,生活,nffa7e9ae3234,夏休みのお昼ご飯、今年は先に全部決めました,2026-07-22T18:41:45.000+09:00,https://note.com/saya_3mom_life/n/nffa7e9ae3234,0,74,18,2
 LIFE-003,生活,n003e73497ad9,noteを書くたび5分かかっていた画像編集をAIで自動化した話,2026-07-20T22:17:54.000+09:00,https://note.com/saya_3mom_life/n/n003e73497ad9,0,69,13,0
 PLAYVEE-001,開発,n3cb576e5f930,デザインが苦手でも大丈夫。AIに「画面設計書」を渡したら、ここまでできた 〜ChatGPT・Claude・Gemini比較＆テンプレート公開〜,2026-07-12T06:09:03.000+09:00,https://note.com/saya_3mom_life/n/n3cb576e5f930,500,66,12,0
-LIFE-006,生活,n41dd15343129,noteの見出し画像作成を自動化する｜iPhoneショートカット＋Scriptableで自分専用ツールを作った方法,2026-08-02T07:50:26.000+09:00,https://note.com/saya_3mom_life/n/n41dd15343129,500,68,10,0
+LIFE-006,生活,n41dd15343129,noteの見出し画像作成を自動化する｜iPhoneショートカット＋Scriptableで自分専用ツールを作った方法,2026-08-02T07:50:26.000+09:00,https://note.com/saya_3mom_life/n/n41dd15343129,500,69,10,0
 OTHER-001,その他,n11933f33e051,家の中はぐちゃぐちゃ。10年授乳ブラで過ごす3児ママエンジニアが「生存」のためにnoteを始めます。,2026-05-09T10:11:08.000+09:00,https://note.com/saya_3mom_life/n/n11933f33e051,0,62,18,0
 OTEPAY-003,開発,nf27bdd46ade5,お手伝いポイントアプリ自作日記#3｜ついに家族で使えるようになりました,2026-06-29T20:55:58.000+09:00,https://note.com/saya_3mom_life/n/nf27bdd46ade5,0,62,15,0
 OTEPAY-005,開発,n30fda5bfa761,お手伝いポイントアプリ自作日記#5｜「前のアプリの方が良かった」と言われた日,2026-07-14T08:31:49.000+09:00,https://note.com/saya_3mom_life/n/n30fda5bfa761,0,59,14,0
@@ -29,8 +29,8 @@ LIFE-002,生活,n980384a715f5,母の日に、寝たきりの母へGoogle Nest Hu
 LIFE-008,生活,n69aa219b9a4f,実家のGoogle Nest Hub、写真が数枚しか表示されない問題を解決してきた,2026-08-15T18:00:50.000+09:00,https://note.com/saya_3mom_life/n/n69aa219b9a4f,0,36,6,0
 DEL-001,削除,n9d42ff16b2e7,1歳10ヶ月娘、日本脳炎の予防接種へ,2026-06-12T21:00:27.000+09:00,https://note.com/saya_3mom_life/n/n9d42ff16b2e7,0,4,4,0
 LIFE-009,生活,n4d6edde95632,noteのアクセス数を毎日自動で記録したい。Pythonで「note観測システム」を作り始めました｜noteアナリティクス#1,2026-08-16T17:09:22.000+09:00,https://note.com/saya_3mom_life/n/n4d6edde95632,0,49,12,0
-LIFE-010,生活,n4f304f74e11f,noteの数字を「毎日の記録」にしてみる。Pythonでアクセス推移を残す仕組みを作った｜noteアナリティクス#2,2026-08-17T18:45:05.000+09:00,https://note.com/saya_3mom_life/n/n4f304f74e11f,0,37,5,0
-LIFE-011,生活,nd1b3c376d573,noteの数字を毎日記録するのが面倒なので、自動でやってもらうことにした｜noteアナリティクス#3,2026-08-18T20:38:40.000+09:00,https://note.com/saya_3mom_life/n/nd1b3c376d573,0,39,12,0
-LIFE-012,生活,n81b245ad2653,noteのアクセス分析を自作したあと、note proの存在を知りました｜noteアナリティクス#4,2026-08-20T19:50:45.000+09:00,https://note.com/saya_3mom_life/n/n81b245ad2653,0,33,7,0
+LIFE-010,生活,n4f304f74e11f,noteの数字を「毎日の記録」にしてみる。Pythonでアクセス推移を残す仕組みを作った｜noteアナリティクス#2,2026-08-17T18:45:05.000+09:00,https://note.com/saya_3mom_life/n/n4f304f74e11f,0,38,6,0
+LIFE-011,生活,nd1b3c376d573,noteの数字を毎日記録するのが面倒なので、自動でやってもらうことにした｜noteアナリティクス#3,2026-08-18T20:38:40.000+09:00,https://note.com/saya_3mom_life/n/nd1b3c376d573,0,40,12,0
+LIFE-012,生活,n81b245ad2653,noteのアクセス分析を自作したあと、note proの存在を知りました｜noteアナリティクス#4,2026-08-20T19:50:45.000+09:00,https://note.com/saya_3mom_life/n/n81b245ad2653,0,34,7,0
 OTEPAY-11,開発,n7e5f69222797,おてペイ日記#11｜久しぶりに自分のコードを見たら、何をしていたのか分からなくなった,2026-08-22T19:47:51.000+09:00,https://note.com/saya_3mom_life/n/n7e5f69222797,0,22,7,0
-LIFE-013,生活,n8cdbb5eff743,noteAnalyticsに分析機能を追加。記事の『初速』を見えるようにしてみた｜noteアナリティクス#5,2026-08-24T20:09:20.000+09:00,https://note.com/saya_3mom_life/n/n8cdbb5eff743,0,21,3,0
+LIFE-013,生活,n8cdbb5eff743,noteAnalyticsに分析機能を追加。記事の『初速』を見えるようにしてみた｜noteアナリティクス#5,2026-08-24T20:09:20.000+09:00,https://note.com/saya_3mom_life/n/n8cdbb5eff743,0,29,4,0
