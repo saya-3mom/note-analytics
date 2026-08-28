@@ -3,7 +3,7 @@ name: Daily note analytics
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 21 * * *"
+    - cron: "17 21 * * *"
 
 jobs:
   observe:
