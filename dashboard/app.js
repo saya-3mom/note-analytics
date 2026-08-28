@@ -56,7 +56,11 @@ async function main(){
   document.querySelector("#table").innerHTML=latest.map(a=>`
     <tr>
       <td>${esc(a.management_id)}</td>
-      <td title="${esc(a.title)}">${esc(a.title)}</td>
+      <td title="${esc(a.title)}">
+        <a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">
+          ${esc(a.title)}
+        </a>
+      </td>
       <td>${fmt(a.views)}</td>
       <td class="${a.diff>0?"up":""}">${a.diff===null?"—":(a.diff>=0?"+":"")+fmt(a.diff)}</td>
       <td>${fmt(a.likes)}</td><td>${a.rate.toFixed(1)}%</td><td>${fmt(a.comments)}</td>
@@ -67,7 +71,11 @@ async function main(){
     <div class="rank">
       <div class="rankno">${i+1}</div>
       <div class="rid">${esc(a.management_id)}</div>
-      <div class="rtitle">${esc(a.title)}</div>
+      <div class="rtitle">
+        <a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">
+          ${esc(a.title)}
+        </a>
+      </div>
       <div class="rdiff">${a.diff>=0?"+":""}${fmt(a.diff)} views</div>
     </div>`).join(""):`<div class="empty">比較できる観測データがまだありません。</div>`;
 }
