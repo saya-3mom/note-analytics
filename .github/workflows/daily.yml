@@ -1,4 +1,5 @@
 name: Daily note analytics
+# scheduled workflow resync
 
 on:
   workflow_dispatch:
