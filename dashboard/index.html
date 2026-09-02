@@ -6,7 +6,9 @@
   <title>noteAnalytics</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <header>
   <div>
     <div class="label">noteAnalytics</div>
@@ -16,34 +18,119 @@
 </header>
 
 <main>
+
+  <!-- サマリー -->
   <section class="summary">
-    <div><span>記事数</span><strong id="count">-</strong></div>
-    <div><span>総ビュー</span><strong id="views">-</strong></div>
-    <div><span>前回からの増加</span><strong id="diff">-</strong></div>
-    <div><span>平均スキ率</span><strong id="rate">-</strong></div>
+    <div>
+      <span>記事数</span>
+      <strong id="count">-</strong>
+    </div>
+
+    <div>
+      <span>総ビュー</span>
+      <strong id="views">-</strong>
+    </div>
+
+    <div>
+      <span>前回からの増加</span>
+      <strong id="diff">-</strong>
+    </div>
+
+    <div>
+      <span>平均スキ率</span>
+      <strong id="rate">-</strong>
+    </div>
   </section>
 
+
+  <!-- 記事一覧 -->
   <section class="card">
     <h2>記事一覧</h2>
     <p class="sub">最新の観測値と、ひとつ前の観測からの増加</p>
+
     <div class="table-wrap">
       <table>
-        <thead><tr>
-          <th>管理ID</th><th>タイトル</th><th>ビュー</th>
-          <th>前回比</th><th>スキ</th><th>スキ率</th><th>コメント</th>
-        </tr></thead>
+        <thead>
+          <tr>
+            <th>管理ID</th>
+            <th>タイトル</th>
+            <th>ビュー</th>
+            <th>前回比</th>
+            <th>スキ</th>
+            <th>スキ率</th>
+            <th>コメント</th>
+          </tr>
+        </thead>
+
         <tbody id="table"></tbody>
       </table>
     </div>
   </section>
 
+
+  <!-- 初速 -->
   <section class="card">
-    <h2>ビュー増加ランキング</h2>
-    <p class="sub">前回観測から増えたビュー数</p>
-    <div id="ranking"></div>
+    <h2>🚀 公開後の初速</h2>
+    <p class="sub">
+      公開後何日目に、どれくらいビュー・スキを獲得したか
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>記事</th>
+            <th>ジャンル</th>
+            <th>1日後</th>
+            <th>3日後</th>
+            <th>7日後</th>
+          </tr>
+        </thead>
+
+        <tbody id="speedTable"></tbody>
+      </table>
+    </div>
   </section>
+
+
+  <!-- ジャンル別 -->
+  <section class="card">
+    <h2>📊 ジャンル別の平均</h2>
+    <p class="sub">
+      各ジャンルの記事について、現在の平均値を比較
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ジャンル</th>
+            <th>記事数</th>
+            <th>平均ビュー</th>
+            <th>平均スキ</th>
+            <th>平均スキ率</th>
+          </tr>
+        </thead>
+
+        <tbody id="genreTable"></tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- 最近伸び始めた記事 -->
+  <section class="card">
+    <h2>🔥 最近伸び始めた記事</h2>
+    <p class="sub">
+      前回よりビューの増加ペースが上がった記事
+    </p>
+
+    <div id="growth"></div>
+  </section>
+
 </main>
 
 <script src="app.js"></script>
+
 </body>
 </html>
