@@ -4,7 +4,7 @@ name: Daily note analytics
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 21 * * *"
+    - cron: "17 18 * * *"
 
 jobs:
   observe:
@@ -39,7 +39,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add articles.csv observations.csv
+          git add articles.csv observations.csv account_observations.csv
 
           if git diff --cached --quiet; then
             echo "No changes to commit."

@@ -212,3 +212,23 @@ class NoteClient:
             "comment_count": data.get("comment_count"),
             "price": data.get("price"),
         }
+
+    def get_account_info(self) -> dict:
+        """noteアカウントの情報を取得する"""
+
+        url = f"{self.BASE_URL}/api/v2/creators/saya_3mom_life"
+
+        response = self.session.get(
+            url,
+            timeout=30,
+        )
+
+        response.raise_for_status()
+
+        data = response.json()["data"]
+
+        return {
+            "follower_count": data.get("followerCount"),
+            "following_count": data.get("followingCount"),
+            "note_count": data.get("noteCount"),
+        }

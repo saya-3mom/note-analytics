@@ -4,6 +4,7 @@ from pathlib import Path
 from note_client import NoteClient
 from article_master import ArticleMaster
 from observation import ObservationManager
+from account_observation import AccountObservationManager
 
 
 # ==========================================
@@ -44,6 +45,13 @@ def main():
 
         print(
             f"取得記事数: {len(note_articles)}"
+        )
+
+        account_info = client.get_account_info()
+
+        print(
+            f"フォロワー数: "
+            f"{account_info['follower_count']}"
         )
 
         # ==================================
@@ -103,6 +111,16 @@ def main():
 
         observation_manager.append(
             article_master.articles
+        )
+
+        print("\n[4] アカウント観測データを記録")
+
+        account_observation_manager = AccountObservationManager(
+            "account_observations.csv"
+        )
+
+        account_observation_manager.record(
+            account_info["follower_count"]
         )
 
         # ==================================
