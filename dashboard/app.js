@@ -1,6 +1,7 @@
 const files = [
   "../articles.csv",
-  "../observations.csv"
+  "../observations.csv",
+  "../account_observations.csv"
 ];
 
 async function csv(path){
@@ -170,7 +171,7 @@ function buildArticles(articles, obs){
   const groups = groupObservations(obs);
 
   return articles
-    .filter(a => a.management_id && a.note_key)
+    .filter(a => a.note_key)
     .map(a => {
 
       const rows = groups[a.note_key] || [];
@@ -249,7 +250,7 @@ function buildArticles(articles, obs){
 /*
  * サマリー
  */
-function renderSummary(latest){
+function renderSummary(latest, accountObs){
 
   const total =
     latest.reduce(
@@ -286,6 +287,47 @@ function renderSummary(latest){
     .textContent =
       rate.toFixed(1) + "%";
 
+
+  // フォロワー数
+  const sortedAccountObs =
+    [...accountObs]
+      .sort((a,b) =>
+        a.observed_at.localeCompare(b.observed_at)
+      );
+
+  const latestAccount =
+    sortedAccountObs.at(-1);
+
+  const previousAccount =
+    sortedAccountObs.length > 1
+      ? sortedAccountObs.at(-2)
+      : null;
+
+  const followerCount =
+    latestAccount
+      ? n(latestAccount.follower_count)
+      : null;
+
+  const followerDiff =
+    latestAccount && previousAccount
+      ? followerCount -
+        n(previousAccount.follower_count)
+      : null;
+
+  document.querySelector("#followers")
+    .textContent =
+      followerCount !== null
+        ? fmt(followerCount)
+        : "-";
+
+  document.querySelector("#followerDiff")
+    .textContent =
+      followerDiff === null
+        ? "—"
+        : (followerDiff >= 0 ? "+" : "") +
+          fmt(followerDiff);
+
+
   const dates =
     latest
       .map(a => a.observed)
@@ -315,7 +357,7 @@ function renderArticles(latest){
         <tr>
 
           <td>
-            ${esc(a.management_id)}
+            ${esc(a.management_id || "未設定")}
           </td>
 
           <td title="${esc(a.title)}">
@@ -574,7 +616,7 @@ function renderGrowth(latest){
               </div>
 
               <div class="growth-id">
-                ${esc(a.management_id)}
+                ${esc(a.management_id || "未設定")}
               </div>
 
               <div
@@ -623,7 +665,7 @@ function renderGrowth(latest){
  */
 async function main(){
 
-  const [articles, obs] =
+  const [articles, obs, accountObs] =
     await Promise.all(
       files.map(csv)
     );
@@ -636,7 +678,7 @@ async function main(){
     );
 
 
-  renderSummary(latest);
+  renderSummary(latest, accountObs);
   renderArticles(latest);
   renderSpeed(latest);
   renderGenres(latest);
